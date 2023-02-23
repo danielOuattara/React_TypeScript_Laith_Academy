@@ -8,7 +8,7 @@ import { PeopleState as PeopleProps } from "../App";
 
 // -----------------------------------------------
 
-const List: React.FC<PeopleProps> = ({ people }) => {
+const List: React.FC<PeopleProps> = ({ people, number, title }) => {
   const renderList = () => {
     return people.map((person) => (
       <li key={person.name} className="List">
@@ -22,7 +22,13 @@ const List: React.FC<PeopleProps> = ({ people }) => {
     ));
   };
 
-  return <ul>{renderList()}</ul>;
+  return (
+    <>
+      <h2>{title}</h2>
+      <p>Number is {number}</p>
+      <ul>{renderList()}</ul>
+    </>
+  );
 };
 
 export default List;

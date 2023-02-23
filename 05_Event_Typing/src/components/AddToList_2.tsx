@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { PeopleState as PeopleProps } from "../App";
 
 interface PeopleForProps {
-  people: PeopleProps["people"];
   setPeople: React.Dispatch<React.SetStateAction<PeopleProps["people"]>>;
 }
 
@@ -25,8 +24,8 @@ export default function AddToList(props: PeopleForProps) {
 
   const handleClick = (): void => {
     if (!input.age || !input.img || !input.name) return;
-    props.setPeople([
-      ...props.people,
+    props.setPeople((prevState) => [
+      ...prevState,
       {
         name: input.name,
         age: Number(input.age),
