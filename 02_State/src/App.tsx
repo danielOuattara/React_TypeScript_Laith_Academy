@@ -11,8 +11,13 @@ interface PeopleState {
 }
 
 function App() {
-  const [number, setNumber] = useState<number | string>(5);
+  // const [number, setNumber] = useState(5) as number; // Incorrect
+  // const [number, setNumber] = useState(5) as  unknown as number; // Incorrect
+  const [number, setNumber] = useState<number | string>(5); // OK
+
   const [people, setPeople] = useState<PeopleState["people"]>([]);
+
+  people.map((person) => person.age);
 
   return (
     <div className="App">
